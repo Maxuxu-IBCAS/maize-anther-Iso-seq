@@ -1,0 +1,10 @@
+ccs -j 30 --min-passes 1 --min-rq 0.9 --max-length 300000  --min-length 100 m54061_190127_033430.subreads.bam m54061_190127_033430.subreads.ran.bam.ccs.bam
+ccs -j 30 --min-passes 1 --min-rq 0.9 --max-length 300000  --min-length 100 m54061_190127_235345.subreads.bam m54061_190127_235345.subreads.ran.bam.ccs.bam
+ccs -j 30 --min-passes 1 --min-rq 0.9 --max-length 300000  --min-length 100 m54061_190129_072447.subreads.bam m54061_190129_072447.subreads.ran.bam.ccs.bam
+ccs -j 30 --min-passes 1 --min-rq 0.9 --max-length 300000  --min-length 100 m54061_190130_034414.subreads.bam m54061_190130_034414.subreads.ran.bam.ccs.bam
+ccs -j 30 --min-passes 1 --min-rq 0.9 --max-length 300000  --min-length 100 m54061_190202_175347.subreads.bam m54061_190202_175347.subreads.ran.bam.ccs.bam
+ccs -j 30 --min-passes 1 --min-rq 0.9 --max-length 300000  --min-length 100 m54061_190214_010612.subreads.bam m54061_190214_010612.subreads.ran.bam.ccs.bam
+ccs -j 30 --min-passes 1 --min-rq 0.9 --max-length 300000  --min-length 100 m54136_190128_101436.subreads.bam m54136_190128_101436.subreads.ran.bam.ccs.bam
+ccs -j 30 --min-passes 1 --min-rq 0.9 --max-length 300000  --min-length 100 m54136_190130_201720.subreads.bam m54136_190130_201720.subreads.ran.bam.ccs.bam
+ccs -j 30 --min-passes 1 --min-rq 0.9 --max-length 300000  --min-length 100 PBL191118-ZM-C72-15R1.subreads.bam PBL191118-ZM-C72-15R1.subreads.ran.bam.ccs.bam
+ccs -j 30 --min-passes 1 --min-rq 0.9 --max-length 300000  --min-length 100 pollen.bam pollen.ran.bam.ccs.bam
