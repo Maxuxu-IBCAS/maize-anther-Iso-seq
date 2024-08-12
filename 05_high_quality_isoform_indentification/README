@@ -1,0 +1,18 @@
+# this file was guide of high-quality isoform identification based on ssRNA-seq, CAGE-seq and PAS-seq
+
+## SJ position information come from "SJ.out.tab" files of "03_ssRNA-seq_data_analysis"
+
+
+## TSS position information come from "*.cvs" files of "02_CAGE_and_PAS_data_analysis"
+paste A10_1_A.combined.csv A15_30_1_A.combined.csv A40_1_A.combined.csv APO_1_A.combined.csv | perl -e 'while(<>){chomp;$_=~s/\"//g;@aa=split;next if(/start/);$aa[2]=$aa[2]-1;print "$aa[1]\t$aa[2]\t$aa[3]\t$aa[4]\t$aa[5]\t$aa[8]\t$aa[17]\t$aa[26]\t$aa[35]\n"}' - >all_sample_combined_CAGEr_out_cluster.bed
+bedtools intersect -a all_sample_combined_CAGEr_out_cluster.CAGE.bed -b pb.start.up_500bp.first_exon.bed -wao >all_sample_combined_CAGEr_out_cluster.CAGE.intersect_with.PB_start.bed
+
+
+## TES position information come from "*.cvs" files of "02_CAGE_and_PAS_data_analysis"
+paste A10_1_A.combined.csv A15_30_1_A.combined.csv A40_1_A.combined.csv APO_1_A.combined.csv | perl -e 'while(<>){chomp;$_=~s/\"//g;@aa=split;next if(/start/);$aa[2]=$aa[2]-1;print "$aa[1]\t$aa[2]\t$aa[3]\t$aa[4]\t$aa[5]\t$aa[8]\t$aa[17]\t$aa[26]\t$aa[35]\n"}' - >all_sample_combined_CAGEr_out_cluster.bed
+bedtools intersect -a all_sample_combined_CAGEr_out_cluster.PAS.bed -b pb.end.down_500bp.last_exon.bed -wao >all_sample_combined_CAGEr_out_cluster.PAS.intersect_with.PB_end.bed
+
+## combine TSS/TES/SJ information of isoform
+## Usage: perl combine_all_information.pl SJ.info CAGE_info PAS_info singleton_info
+## file format of singleton_info: chr	start	end isoform_name	if_singleton(Y/N)
+perl combine_all_information.pl SJ.info intron_position_of_isoform all_sample_combined_CAGEr_out_cluster.CAGE.intersect_with.PB_start.bed all_sample_combined_CAGEr_out_cluster.PAS.intersect_with.PB_end.bed isoform.bed
